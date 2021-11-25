@@ -1,0 +1,20 @@
+body{
+    
+}
+mat-card{
+    height: 90vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    flex-direction: column;
+    margin-left: 24%;
+    
+}
+mat-card-title{
+    flex-direction: column;
+}
+button{
+    margin-left: 28%;
+}

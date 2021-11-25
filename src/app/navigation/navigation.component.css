@@ -1,0 +1,13 @@
+.nav{
+    flex:center;
+    justify-content: center;
+}
+button {
+    padding: 0 120px 0 120px;
+    margin: 6px 8px 6px 8px;
+    min-width: 100px;
+   }
+   mat-button:hover{
+    background-color:grey;
+    color: purple;
+  }

@@ -1,0 +1,37 @@
+<body>
+<mat-card>
+    <mat-card-title>Contact us</mat-card-title>
+    <mat-card-content style="padding-top:2%">
+<form [formGroup]="addForm" >
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" autocomplete="off" required>
+    </mat-form-field>
+</p>
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" autocomplete="off" required >
+    </mat-form-field>
+</p>
+
+<p>
+    <mat-form-field appearance="outline">
+        <mat-label>Question</mat-label>
+        <textarea matInput placeholder="Question" formControlName="text" autocomplete="off" required ></textarea>
+    </mat-form-field>
+</p>
+
+<br>
+<p>
+    <br><br>
+    <button mat-raised-button color="primary" [disabled]="!addForm.valid" (click)="erase()" >Submit</button>
+</p>
+ 
+</form>
+</mat-card-content>
+</mat-card>
+</body>
+<br> <br>
+<app-footer></app-footer>

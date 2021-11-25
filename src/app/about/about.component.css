@@ -1,0 +1,23 @@
+body{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+
+}
+h1{
+    text-align: center;
+    padding-top: 1%;
+}
+p{
+    text-align: center;
+
+}
+iframe{
+    margin-left: 10%;
+}
+.back{
+    background-color: rgb(245, 245, 245);
+}
