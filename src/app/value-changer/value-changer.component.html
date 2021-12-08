@@ -1,0 +1,104 @@
+<section class="section">
+  <div class="main">
+    <div class="currency__converter">
+      <h3 class="color__primary">Currency Converter</h3>
+      <div class="currency">
+        <form [formGroup]="currencyForm">
+          <mat-form-field class="form__field" appearance="outline">
+            <mat-label class="form__label">Amount</mat-label>
+            <input
+              class="input"
+              matInput
+              type="number"
+              min="0"
+              placeholder="Enter how much money you want to convert"
+              formControlName="quantity"
+            />
+          </mat-form-field>
+          <mat-form-field class="form__field" appearance="outline">
+            <mat-label>From</mat-label>
+            <mat-select formControlName="from">
+              <mat-option disabled>Pick valute:</mat-option>
+              <mat-option
+                [value]="symbol.key"
+                *ngFor="let symbol of symbols | keyvalue"
+                >{{ symbol.key }} - {{ symbol.value }}</mat-option
+              >
+              <!-- TODO!!! Mat-option iterrate symbols -->
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form__field" appearance="outline">
+            <mat-label>To</mat-label>
+            <mat-select formControlName="to">
+              <mat-option disabled>Pick valute: :</mat-option>
+              <mat-option
+                [value]="symbol.key"
+                *ngFor="let symbol of symbols | keyvalue"
+                >{{ symbol.key }} - {{ symbol.value }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <button
+            class="convert__button"
+            mat-raised-button
+            color="primary"
+            (click)="convert()"
+            [disabled]="currencyForm.invalid"
+          >
+            Convert
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="currency__result">
+      <h3>Currency Result</h3>
+      <div class="result__container">
+        <div class="result__body" *ngIf="!sampleValue">
+          <span> <i class="bx bx-check-circle bx-xl"></i></span>
+          <div class="result__from my__1 p__1">
+            <h3>{{ currencyForm.value?.quantity }}</h3>
+            <p>{{ currencyForm.value?.from }}</p>
+          </div>
+
+          <div
+            class="result__to my__1 p__1"
+            *ngFor="let rate of rates | keyvalue"
+          >
+            <h3>{{ rate.value }}</h3>
+            <p>{{ rate.key }}</p>
+          </div>
+          <p> {{today | date:'fullDate'}}</p>
+        </div>
+        <!-- Sample Value -->
+        <div class="result__body" *ngIf="sampleValue">
+         
+          <div class="result__from my__1 p__1">
+            <h3>0</h3>
+            <p>USD / EUR...</p>
+          </div>
+
+          <div class="result__to my__1 p__1">
+            <h3>0</h3>
+            <p>USD / EUR...</p>
+          </div>
+          <div class="result__to my__1 p__1">
+            <p> {{today | date:'fullDate'}}</p>
+          </div>
+        </div>
+
+
+        <!-- 
+          <p>
+            {{ currencyForm.value?.quantity }}
+          </p>
+          <p>
+            {{ currencyForm.value?.from }}
+          </p>
+          <div *ngFor="let rate of rates | keyvalue">
+            {{ rate.value }} {{ rate.key }}
+          </div> -->
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,33 +1,15 @@
 <br>
 <mat-card>
-  <div class="col-sm-12" style="text-align:center;">
-    Login
-  </div>
-  <br>
-
-  <div class="col-sm-12">
-    <form [formGroup]="loginForm">
-      <p>
-        <mat-form-field appearance="outline">
-            <mat-label>Email address</mat-label>
-            <input matInput placeholder="email" formControlName="email" autocomplete="off" required>
-        </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="password" formControlName="password" autocomplete="off" required>
-      </mat-form-field>
-  </p>
-
-      <div class="form-group" style="text-align:center;">
-          <button mat-raised-button color="primary" (click)="login()" >Log in</button>
-          <div class="left"></div><br>
-          <button mat-raised-button color="accent" (click)="moveToRegister()">Register</button>
-      </div>
-    </form>
-  </div>
+<hr>
+<div *ngIf="!isSignedIn">
+  <h2>Log In</h2>
+  <label for="fname">Email:</label><br>
+  <input type="text" #email/><br>
+  <label for="fname">password:</label><br>
+  <input type="password" #password minlength="6" /><br>
+  <button (click)="onSignin(email.value,password.value)">Log in</button>
+</div>
+<app-user-screen *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-user-screen>
 </mat-card>
 <br><br>
-
 <app-footer></app-footer>

@@ -1,7 +1,11 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppService } from 'src/app.service';
 import { UserService } from '../user.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,35 +14,25 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent implements OnInit {
 
-
-  registerForm:FormGroup = new FormGroup({
-    email:new FormControl(null,[Validators.email,Validators.required]),
-    username:new FormControl(null,Validators.required),
-    password:new FormControl(null,Validators.required),
-    cpass:new FormControl(null,Validators.required)
-  })
-  constructor(private _router:Router,private _userService:UserService) { }
-
-  
-
-  ngOnInit(): void {
-  }
-
-  moveToLogin(){
-    this._router.navigate(['/login']);
-  }
-  register(){
-    if(!this.registerForm.valid || (this.registerForm.controls['password'].value != this.registerForm.controls['cpass'].value)){
-      console.log('Invalid Form'); 
-      return;
+    isSignedIn = false
+  localStorage: any;
+    constructor(public firebaseService : UserService,private _snackBar: MatSnackBar){}
+    ngOnInit(){
+      if(localStorage.getItem('user')!== null)
+      this.isSignedIn= true
+      else
+      this.isSignedIn = false
     }
-    this._userService.register(JSON.stringify(this.registerForm.value))
-    .subscribe(
-      data=> {console.log(data); this._router.navigate(['/login']);
-    },
-      error=>console.error(error)
-    )
-  
-  }
+    async onSignup(email:string,password:string){
+      await this.firebaseService.signup(email,password)
+      if(this.firebaseService.isLoggedIn)
+      this.isSignedIn = true
+      this._snackBar.open("Succesfuly sent :)");
+    }
+    handleLogout(){
+      this.isSignedIn = false
+      
+    }
+    
 
 }

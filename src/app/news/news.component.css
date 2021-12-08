@@ -1,7 +1,6 @@
 
 .example-card {
     max-width: 40%;
-
         position: relative;
         border-radius: 2px;
         padding: 10px 10px 30px;
@@ -11,7 +10,7 @@
   }
   mat-card{
       display: inline-table;
-      height: 65vh;
+      height: 75vh;
   }
   .container{
       padding-left: 200px;

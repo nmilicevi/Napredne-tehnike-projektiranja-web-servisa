@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-screen',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserScreenComponent implements OnInit {
 
-  constructor() { }
+  @Output() isLogout = new EventEmitter<void>()
+  localStorage: any;
+  constructor(public firebaseService: UserService) { }
 
   ngOnInit(): void {
+}
+
+  logout(){
+    this.firebaseService.logout()
+    this.isLogout.emit()
   }
+  
 
 }

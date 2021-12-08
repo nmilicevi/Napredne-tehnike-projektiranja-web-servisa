@@ -1,10 +1,10 @@
 mat-card{
-    height: 50vh;
+    height: 70vh;
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(245, 245, 245);
+    background-image: linear-gradient(to right top, #6ef2c2, #b2d97a, #e7b75b, #ff8f72, #fc74a7);
     flex-direction: column;
     margin-left: 24%;
     
@@ -12,3 +12,46 @@ mat-card{
 .left{
     padding-right: 10%;
 }
+.card{
+    height: 90vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    margin-left: 24%;
+}
+input{
+  background: none;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid ;
+  
+}
+button{
+
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  
+  }

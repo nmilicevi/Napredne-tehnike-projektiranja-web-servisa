@@ -1,14 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { OktaAuthService } from '@okta/okta-angular';
+import { TokenStorageService } from './_services/token-storage.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'technology';
 
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  username?: string;
+
+  constructor(private tokenStorageService: TokenStorageService) {}
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn){
+      const user = this.tokenStorageService.getUser();
+
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes("ROLE_MODERATOR");
+
+      this.username = user.username;
+    }
+  }
+
+  logout(): void{
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
+  
   slides = [
     {'image': 'https://www.epo.org/about-us/annual-reports-statistics/statistics/2020/digital-technologies/TopVisual.jpg?lenya.module=svg&height=283&width=761'}, 
     {'image': 'https://i.insider.com/5fd299359cf1420018d2ea79?width=1136&format=jpeg'},

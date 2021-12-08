@@ -1,0 +1,143 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5f5f5;
+
+    
+  }
+.container h1 {
+    margin: 0.5em auto;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    
+}
+.chatbox {
+    background: linear-gradient(to right, #dd5f2e, #eb5b79);
+    width: 80%;
+    height: 75%;
+    border-radius: 0.2em;
+    position: relative;
+    box-shadow: 1px 15px 20px rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+}
+.chatbox .messages_list {
+    overflow-y: auto;
+    height: 100%;
+}
+.chatbox__messages.mine .message-box {
+    float: right;
+}
+.chatbox__messages .message-box {
+    float: left;
+}
+.chatbox .message-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1em 0;
+    height: auto;
+    width: 55%;
+    border-radius: 5px;
+    margin: 2em 1em;
+    overflow: auto;
+}
+.chatbox .message-box > p.name {
+    color: #fff;
+    font-size: 1em;
+}
+.chatbox .message-box > p.message {
+    color: #fff;
+    font-size: 0.9em;
+    margin: 0 2.8em;
+}
+h2{
+    color: #fff;
+    padding-left: 10px;
+}
+.chatbox__user-list {
+    background-color: #191c1b;
+    width: 25%;
+    height: 100%;
+    float: right;
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+    border-radius: 0px 10px 10px 0px;
+}
+.chatbox__user-list h1 {
+    background: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.251);
+    font-size: 1.9em;
+    padding: 1em;
+    margin: 0;
+    font-weight: 300;
+    text-align: center;
+}
+.chatbox__user, .chatbox__user--active {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 100%;
+    margin: 1em 0.7em;
+}
+.chatbox__user--active {
+    background: rgba(23, 190, 187, 0.979);
+}
+.chatbox p {
+    float: left;
+    text-align: left;
+    margin: -0.25em 2em;
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #fff;
+    width: 200px;
+}
+.chatbox form {
+    background: #222;
+}
+.chatbox form input {
+    background: rgba(255, 255, 255, 0.03);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: none;
+    width: 75%;
+    padding: 1.2em;
+    outline: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+}
+button{
+
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+
+}
+input{
+    font-size: 16px;
+    font-size: Max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid ;
+    border-radius: 4px;
+    transition: 180ms box-shadow ease-in-out;
+    margin-right: 5px;
+}

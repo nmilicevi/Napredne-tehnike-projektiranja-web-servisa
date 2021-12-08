@@ -22,14 +22,26 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { UserScreenComponent } from './user-screen/user-screen.component';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './user.service';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
-
+import { AuthInterceptorProviders } from './_helpers/auth.interceptor';
+import { WheatherComponent } from './wheather/wheather.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatService } from './chat.service';
+import { UsernameComponent } from './username/username.component';
+import { ValueChangerComponent } from './value-changer/value-changer.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -44,6 +56,10 @@ import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/materia
     FooterComponent,
     UserScreenComponent,
     RegisterComponent,
+    WheatherComponent,
+    ChatComponent,
+    UsernameComponent,
+    ValueChangerComponent,
     
   ],
   imports: [
@@ -64,9 +80,27 @@ import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/materia
     ReactiveFormsModule,
     MatInputModule,
     TextFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule,
+    MDBBootstrapModule.forRoot(),
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatDividerModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyA3YymppqWPnNyz6SMdgXc1m7QFUILeupM",
+      authDomain: "projekt-89ec5.firebaseapp.com",
+      projectId: "projekt-89ec5",
+      storageBucket: "projekt-89ec5.appspot.com",
+      messagingSenderId: "3326769005",
+      appId: "1:3326769005:web:49eae7f2675d141a920c64",
+      measurementId: "G-02NV9QMJL7"
+    })
+
   ],
-  providers: [UserService,
+  providers: [UserService,AuthInterceptorProviders,ChatService,
     {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 1500}}],
   bootstrap: [AppComponent]
 })

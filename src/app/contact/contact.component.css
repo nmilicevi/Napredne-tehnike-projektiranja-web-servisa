@@ -1,5 +1,5 @@
 body{
-    
+    background-image: linear-gradient(to right top, #d7dde6, #c3ccd8, #b0baca, #9daabc, #8a99ae);
 }
 mat-card{
     height: 90vh;
@@ -7,7 +7,7 @@ mat-card{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(255, 255, 255);
     flex-direction: column;
     margin-left: 24%;
     
